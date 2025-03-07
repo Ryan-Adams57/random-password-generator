@@ -1,0 +1,33 @@
+// Event listener for button click
+document.getElementById("generateBtn").addEventListener("click", function() {
+    const length = document.getElementById("length").value; // Get password length
+    const passwordType = document.getElementById("passwordType").value; // Get password type (alphanumeric or numeric)
+    const password = generatePassword(length, passwordType); // Generate password
+    document.getElementById("generatedPassword").textContent = "Generated Password: " + password; // Display the password
+});
+
+// Function to generate the password
+function generatePassword(length, type) {
+    const alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"; // Alphabets
+    const numbers = "0123456789"; // Numbers
+    const specialChars = "!@#$%^&*()_+[]{}|;:,.<>?"; // Special characters
+
+    let characters = "";
+    
+    // If alphanumeric, allow letters, numbers, and special characters
+    if (type === "alphanumeric") {
+        characters = alphabets + numbers + specialChars;
+    } 
+    // If numeric, only allow numbers
+    else if (type === "numeric") {
+        characters = numbers;
+    }
+
+    let password = "";
+    // Build the password by randomly selecting characters
+    for (let i = 0; i < length; i++) {
+        password += characters.charAt(Math.floor(Math.random() * characters.length)); // Random selection
+    }
+
+    return password;
+}
