@@ -8,3 +8,5 @@
 3. Generate password.
 
 All passwords are generated on your browser so nothing is stored online, you're the only one who has knowledge of the generated password.
+
+Disclaimer: This project is still a work in progress.
